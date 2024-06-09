@@ -7,7 +7,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 from dotenv import load_dotenv
-from authenticate import authenticate
+from utils.authenticate import authenticate
 
 load_dotenv()
 

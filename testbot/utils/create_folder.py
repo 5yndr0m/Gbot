@@ -1,19 +1,8 @@
 import os
 from googleapiclient.discovery import build
 from google.oauth2 import service_account
-from dotenv import load_dotenv
+from authenticate import authenticate
 
-load_dotenv()
-
-SCOPES = ['https://www.googleapis.com/auth/drive']
-SERVICE_ACCOUNT_FILE = os.getenv('SERVICE_ACCOUNT_FILE')
-PARENT_FOLDER_ID = os.getenv('PARENT_FOLDER_ID')
-
-def authenticate():
-    creds = service_account.Credentials.from_service_account_file(
-        SERVICE_ACCOUNT_FILE, scopes=SCOPES
-    )
-    return creds
 
 def create_folder(folder_name):
     creds = authenticate()
@@ -21,7 +10,6 @@ def create_folder(folder_name):
 
     file_metadata = {
         'name': folder_name,
-        'parents': [PARENT_FOLDER_ID],
         'mimeType': 'application/vnd.google-apps.folder'
     }
 
