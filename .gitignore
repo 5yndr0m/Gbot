@@ -1,4 +1,4 @@
 .env
 service_account.json
 credentials.json
-./testbot/secret/token.pickle
+/testbot/secret/token.pickle
